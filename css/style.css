@@ -1,7 +1,214 @@
-/* Tambahan styling kustom sedikit untuk transisi */
+/* =========================================================
+   VARIABLES & RESET
+   ========================================================= */
+:root {
+    --primary-orange: #ea580c;
+    --primary-orange-light: #ffedd5;
+    --primary-orange-dark: #9a3412;
+    --bg-gray: #f9fafb;
+    --text-gray: #1f2937;
+    --text-light: #6b7280;
+    --white: #ffffff;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-gray);
+    color: var(--text-gray);
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.5;
+    min-height: 100vh;
+}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+.container {
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+header {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    padding: 1.5rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h1 {
+    font-size: 1.875rem;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+header p {
+    color: var(--primary-orange-light);
+}
+
+main {
+    margin-top: 1.5rem;
+    padding: 1.5rem 0;
+}
+
+footer {
+    background-color: var(--text-gray);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 3rem;
+}
+
+/* =========================================================
+   FILTERS
+   ========================================================= */
+.filter-section {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.filter-section h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.875rem;
+}
+
+.btn-all { background-color: var(--text-gray); color: var(--white); }
+.btn-all:hover { background-color: #374151; }
+
+.btn-utama { background-color: var(--primary-orange-light); color: var(--primary-orange-dark); }
+.btn-utama:hover { background-color: #fed7aa; }
+
+.btn-minuman { background-color: #dbeafe; color: #1e40af; }
+.btn-minuman:hover { background-color: #bfdbfe; }
+
+.btn-camilan { background-color: #fef9c3; color: #854d0e; }
+.btn-camilan:hover { background-color: #fef08a; }
+
+/* =========================================================
+   GRID & CARDS
+   ========================================================= */
+.menu-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
 .menu-card {
+    background-color: var(--white);
+    border-radius: 0.75rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid #f3f4f6;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     transition: transform 0.2s ease-in-out;
 }
+
 .menu-card:hover {
     transform: translateY(-5px);
+}
+
+.menu-card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem; /* Menambah padding agar teks tidak menempel ke garis */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; /* Memberikan jarak antar elemen secara konsisten */
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--primary-orange-light);
+    color: var(--primary-orange-dark);
+    font-size: 0.75rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0.5rem;
+    margin-bottom: 0.5rem;
+    width: fit-content;
+}
+
+.card-desc {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    flex-grow: 1;
+    line-height: 1.6;
+}
+
+.card-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-orange);
+    margin-top: auto;
+}
+
+.empty-msg {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 2.5rem 0;
+    color: var(--text-light);
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+@media (min-width: 640px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+    .filter-section { text-align: left; }
+    .filter-buttons { justify-content: flex-start; }
+    header p { display: block; }
+}
+
+@media (max-width: 639px) {
+    header p { display: none; }
+}
+
+@media (min-width: 1024px) {
+    .menu-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (min-width: 1280px) {
+    .menu-grid { grid-template-columns: repeat(4, 1fr); }
 }

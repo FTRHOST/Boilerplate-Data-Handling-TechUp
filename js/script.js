@@ -19,26 +19,20 @@ function tampilkanMenu(dataArray) {
 
     // Jika data kosong
     if (dataArray.length === 0) {
-        menuContainer.innerHTML = `<p class="text-gray-500 col-span-full text-center py-10">Menu tidak ditemukan.</p>`;
+        menuContainer.innerHTML = `<p class="empty-msg">Menu tidak ditemukan.</p>`;
         return;
     }
 
     // Looping array menggunakan .forEach()
     dataArray.forEach(menu => {
         const cardHTML = `
-            <div class="menu-card bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden flex flex-col">
-                <img src="${menu.gambar}" alt="${menu.nama}" class="w-full h-48 object-cover">
-                <div class="p-5 flex-grow flex flex-col">
-                    <div class="flex justify-between items-start mb-2">
-                        <h3 class="text-lg font-bold text-gray-800">${menu.nama}</h3>
-                    </div>
-                    <span class="inline-block bg-orange-100 text-orange-800 text-xs px-2 py-1 rounded mb-3 w-max">
-                        ${menu.kategori}
-                    </span>
-                    <p class="text-gray-600 text-sm mb-4 flex-grow">${menu.deskripsi}</p>
-                    <div class="mt-auto">
-                        <p class="text-xl font-bold text-orange-600">${formatRupiah(menu.harga)}</p>
-                    </div>
+            <div class="menu-card">
+                <img src="${menu.gambar}" alt="${menu.nama}">
+                <div class="card-content">
+                    <h3 class="card-title">${menu.nama}</h3>
+                    <span class="badge">${menu.kategori}</span>
+                    <p class="card-desc">${menu.deskripsi}</p>
+                    <p class="card-price">${formatRupiah(menu.harga)}</p>
                 </div>
             </div>
         `;

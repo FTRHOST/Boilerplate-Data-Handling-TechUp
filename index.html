@@ -6,43 +6,44 @@
     <title>Menu Restoran - Belajar Data Handling</title>
     
     <!-- CSS External -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans min-h-screen">
+<body>
 
     <!-- Navbar / Header -->
-    <header class="bg-orange-600 text-white p-6 shadow-md">
-        <div class="max-w-6xl mx-auto flex justify-between items-center">
-            <h1 class="text-3xl font-bold tracking-tight">Warung Nusantara 🍽️</h1>
-            <p class="hidden sm:block text-orange-100">Cita Rasa Asli Indonesia</p>
+    <header>
+        <div class="container">
+            <h1>Warung Nusantara 🍽️</h1>
+            <p>Cita Rasa Asli Indonesia</p>
         </div>
     </header>
 
     <!-- Konten Utama -->
-    <main class="max-w-6xl mx-auto p-6 mt-6">
+    <main class="container">
         
         <!-- Bagian Filter -->
-        <div class="mb-8 text-center sm:text-left">
-            <h2 class="text-xl font-semibold mb-4">Kategori Menu:</h2>
-            <div class="flex flex-wrap gap-2 justify-center sm:justify-start">
-                <button onclick="filterKategori('Semua')" class="px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition">Semua</button>
-                <button onclick="filterKategori('Makanan Utama')" class="px-4 py-2 bg-orange-100 text-orange-800 rounded-full hover:bg-orange-200 transition">Makanan Utama</button>
-                <button onclick="filterKategori('Minuman')" class="px-4 py-2 bg-blue-100 text-blue-800 rounded-full hover:bg-blue-200 transition">Minuman</button>
-                <button onclick="filterKategori('Camilan')" class="px-4 py-2 bg-yellow-100 text-yellow-800 rounded-full hover:bg-yellow-200 transition">Camilan</button>
+        <div class="filter-section">
+            <h2>Kategori Menu:</h2>
+            <div class="filter-buttons">
+                <button onclick="filterKategori('Semua')" class="btn btn-all">Semua</button>
+                <button onclick="filterKategori('Makanan Utama')" class="btn btn-utama">Makanan Utama</button>
+                <button onclick="filterKategori('Minuman')" class="btn btn-minuman">Minuman</button>
+                <button onclick="filterKategori('Camilan')" class="btn btn-camilan">Camilan</button>
             </div>
         </div>
 
         <!-- Container untuk List Menu -->
-        <div id="menu-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div id="menu-container" class="menu-grid">
             <!-- Item menu akan di-generate oleh JavaScript -->
         </div>
 
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white text-center p-6 mt-12">
-        <p>&copy; 2026 Belajar Data Handling - Array & JSON.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Belajar Data Handling - Array & JSON.</p>
+        </div>
     </footer>
 
     <!-- JS External -->
