@@ -1,0 +1,7 @@
+/* Tambahan styling kustom sedikit untuk transisi */
+.menu-card {
+    transition: transform 0.2s ease-in-out;
+}
+.menu-card:hover {
+    transform: translateY(-5px);
+}
